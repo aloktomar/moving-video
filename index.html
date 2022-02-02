@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Video</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section id="section-video">
+        <div class="container">
+            <div class="flex flex-wrap bg-img_wth_overlay">
+                <div class="wd-60 flex justify-center min-height-400">
+                   <div class="content">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero quod cum at perferendis obcaecati nam placeat quam? Assumenda, enim. Temporibus minima iusto ipsam dolores cumque suscipit fuga, nemo veniam cupiditate deserunt similique numquam officia doloremque quasi est, quae, possimus totam corrupti dicta molestiae nesciunt? Porro commodi.</p>
+                   </div>
+                </div>
+                <div class="wd-40">
+                    <div class="mob-wrap relative">
+                        <img src="images/mobile.png">
+                        <div class="iframe-wrap">
+                            <video id="myVideo"  >
+                                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                                <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                                Your browser does not support HTML video.
+                              </video>
+                        </div>
+                    </div>
+                </div>
+                <button> </button>
+            </div>
+        </div>
+        
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+
+   $("#myVideo").attr("controls", false);
+   //on click of play icon
+    $(document).on("click", "button",function(){   
+        $(".iframe-wrap").addClass("active");
+        $(".content,button").fadeOut();
+        $("#myVideo").attr("controls", true);
+        vid.play();
+    });
+    // on click of phone image
+    $(document).on("click", ".mob-wrap",function(){ 
+        $(".iframe-wrap").removeClass("active");
+        $(".content,button").fadeIn();
+        $("#myVideo").attr("controls", false);
+        vid.pause();
+       
+    });
+
+    //video pause and play
+    let vid = document.getElementById("myVideo");  
+    function playVid() { 
+    vid.play(); 
+    }  
+    function pauseVid() { 
+    vid.pause(); 
+    } 
+    
+</script>
+    
+</body>
+</html>
